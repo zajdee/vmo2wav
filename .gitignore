@@ -3,3 +3,4 @@
 *.wav
 *.gsm
 __pycache__/
+*.part
