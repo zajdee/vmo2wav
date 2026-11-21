@@ -9,7 +9,7 @@ script with no dependencies beyond FFmpeg, and it can.
 
 ## Requirements
 
-- Python 3.6 or newer (tested with 3.9 to 3.14)
+- Python 3.7 or newer (tested with 3.9 to 3.14)
 - [FFmpeg](https://ffmpeg.org/) for WAV output. It is not needed with `--gsm`.
 
 ## Usage
@@ -51,14 +51,27 @@ s[0]    = (s[0] & 0x0F) | 0xD0    # restore the 0xD magic nibble of libgsm
 The result is a standard raw `.gsm` stream. To decode it with FFmpeg:
 `ffmpeg -f gsm -ar 8000 -i memo.gsm memo.wav`.
 
-## Tests
+## Development
+
+Run the tests from the repository root:
 
 ```sh
-python3 -m unittest discover tests
+python3 -m unittest
 ```
 
 The tests use synthetic frames, so they need no sample recordings. The WAV
 test is skipped if FFmpeg is not installed.
+
+The code follows PEP 8 with 79-character lines, is formatted with Black and
+is fully type-annotated. The tool settings are in `pyproject.toml`, which
+exists only for these tools; the script is not packaged. To run the checks:
+
+```sh
+black --check vmo2wav.py tests
+ruff check vmo2wav.py tests
+pylint vmo2wav.py tests
+mypy vmo2wav.py tests
+```
 
 ## Credits
 

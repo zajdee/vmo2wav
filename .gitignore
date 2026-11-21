@@ -4,3 +4,5 @@
 *.gsm
 __pycache__/
 *.part
+.mypy_cache/
+.ruff_cache/
