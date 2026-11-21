@@ -1,0 +1,5 @@
+# Recordings are personal data; keep them out of the repository.
+*.vmo
+*.wav
+*.gsm
+__pycache__/
