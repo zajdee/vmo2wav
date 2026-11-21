@@ -66,7 +66,9 @@ The frame mapping comes from the `vmo2wav` converter in
 [SieFS](https://github.com/tapwag/siefs/tree/master/converter), a filesystem
 tool for Siemens phones. That converter decodes the frames with a bundled copy
 of libgsm. This project reimplements the mapping in Python and uses FFmpeg's
-GSM decoder.
+GSM decoder. On real recordings its output matches the SieFS converter to
+within one step of GSM's 13-bit sample resolution (a ±8 difference in 16-bit
+samples), which is a rounding difference between the two GSM decoders.
 
 ## License
 
